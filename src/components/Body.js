@@ -5,7 +5,7 @@ import { Outlet } from "react-router";
 
 const Body = () => {
   return (
-    <div className="grid grid-flow-col">
+    <div className=" md:flex flex-grow-col">
       <Sidebar />
       <Outlet/>
     </div>

@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const ButtonList = () => {
   return (
-    <div className="flex sticky overflow-x-hidden  col-span-11">
+    <div className="flex overflow-x-hidden  col-span-11">
       <Button name={"All"} />
       <Button name="Songs" />
       <Button name="movies" />

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { YOUTUBE_API } from '../utils/constant';
-import VideoCard from './VideoCard';
-import { Link } from 'react-router-dom';
-
+import React, { useEffect, useState } from "react";
+import { YOUTUBE_API } from "../utils/constant";
+import VideoCard, { RedborderVideoCard } from "./VideoCard";
+import { Link } from "react-router-dom";
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
@@ -19,15 +18,14 @@ const VideoContainer = () => {
   };
   return (
     <div className="flex flex-wrap ">
-    {
-      videos.map(video =>(
-       <Link to={"/watch?v=" + video.id} ><VideoCard key={video.id} info={video}/>
-       </Link>
-       ))
-    }
-    
-  </div>
-  )
-}
+      {videos[0] && <RedborderVideoCard info={videos[0]} />}
+      {videos.map((video) => (
+        <Link to={"/watch?v=" + video.id}>
+          <VideoCard key={video.id} info={video} />
+        </Link>
+      ))}
+    </div>
+  );
+};
 
-export default VideoContainer
+export default VideoContainer;
