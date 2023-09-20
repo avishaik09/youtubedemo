@@ -8,6 +8,8 @@ const YOUTUBE_API=" https://youtube.googleapis.com/youtube/v3/videos?part=snippe
  const YOUTUBE_SEARCH_API =
  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
+
+ export const OFFSET_LIVE_CHAT=15;
 export {VIDEO_API,YOUTUBE_API,YOUTUBE_SEARCH_API }
 
 

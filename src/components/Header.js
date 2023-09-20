@@ -13,25 +13,23 @@ const Header = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const dispatch = useDispatch();
- const searchCache=useSelector((store)=> store.search)
- 
- 
- const getSearchSuggestions = async () => {
+  const searchCache = useSelector((store) => store.search);
+
+  const getSearchSuggestions = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
     console.log(json[1]);
     setSuggestions(json[1]);
 
     //update cache
-dispatch(cacheResult({[searchQuery]: json[1]}))
-
+    dispatch(cacheResult({ [searchQuery]: json[1] }));
   };
 
   useEffect(() => {
     console.log(searchQuery);
 
     const timer = setTimeout(() => {
-      if (searchCache[searchQuery] ){
+      if (searchCache[searchQuery]) {
         setSuggestions(searchCache[searchQuery]);
       } else {
         getSearchSuggestions();
@@ -53,7 +51,6 @@ dispatch(cacheResult({[searchQuery]: json[1]}))
           onClick={() => toggleSidebarHandler()}
         />
         <a href="/">
-          {" "}
           <img className="h-8 mx-2" alt="youtube-logo" src={logo} />
         </a>
       </div>
@@ -61,7 +58,7 @@ dispatch(cacheResult({[searchQuery]: json[1]}))
       <div className="col-span-10 px-10">
         <div>
           <input
-            className="w-1/2 h-[36px] border border-gray-200 p-2 px-5  rounded-l-full"
+            className="w-1/2 h-[36px] border border-gray-200 p-2 px-5 focus:border-blue-200 rounded-l-full"
             placeholder=" Search"
             type="text"
             value={searchQuery}

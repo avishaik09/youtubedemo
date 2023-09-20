@@ -7,7 +7,7 @@ const Sidebar = () => {
 
   if(!isSidebarOpen) return null;
   return (
-    <div className='px-5 py-5 h-[100%] shadow-lg w-36 col-span-1'>
+    <div className='px-5 py-5 h-full shadow-lg w-40 col-span-1'>
       <ul>
         <li><Link to="/">Home</Link></li>
         <li>Trending</li>
